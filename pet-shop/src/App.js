@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
+  document.body.style = 'background: #efeef1;';
   return (
     <BrowserRouter>
       <Routes>

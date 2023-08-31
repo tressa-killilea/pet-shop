@@ -2,14 +2,17 @@
     width: 250px;
     height: 350px;
     margin: 20px;
-    border-radius: 20px;
-    border: solid black 1px;
-    background-color: #f0f0f0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card_image{
-    height: 175px;
-    width: 175px;
+    height: 190px;
+    width: 190px;
     border-radius: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -21,4 +24,19 @@
     font-size: 40px;
     font-weight: 600;
     color: #31572C;
+    font-family: "Times New Roman", Times, serif;
 }
+
+.favorite{
+    color: #ff99ac;
+width: 40px;}
+
+button {
+    all: unset;
+    
+  }
+
+  .fav_icon{
+    align-self: end;
+    margin-right: 30px;
+  }
