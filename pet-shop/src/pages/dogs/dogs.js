@@ -5,7 +5,7 @@ import './dogs.scss';
 
 export default class Dogs extends React.Component{
     onPageChange = (page_num) => {
-
+console.log("change page: "+page_num);
     }
     
     render(){

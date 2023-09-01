@@ -11,9 +11,9 @@ export default class Pagination extends React.Component {
 
   onPageClick(selected_page) {
     this.setState({ current_page: selected_page });
-    // also send this data back to parent component
+    this.props.callback(selected_page);
   }
-  
+
   onArrowClick(direction) {
     if (
       direction === "front" &&
@@ -21,7 +21,9 @@ export default class Pagination extends React.Component {
         this.state.current_page != 10)
     ) {
       this.setState({ current_page: this.state.current_page + 1 });
+      this.props.callback(this.state.current_page + 1);
     } else if (direction === "back" && this.state.current_page != 1) {
+        this.props.callback(this.state.current_page - 1);
       this.setState({ current_page: this.state.current_page - 1 });
     }
   }
