@@ -16,11 +16,11 @@ pet = {
     */
 
     pet = {
-        img: "https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_square.jpg",
-        name: "Neva",
-        breed: "Great Pyrenees",
-        age: "Puppy",
-        favorited: false
+        img: this.props.img,
+        name: this.props.name,
+        breed: this.props.breed,
+        age: this.props.age,
+        favorited: this.props.favorited
     }
     state={
         favorited: this.pet.favorited
