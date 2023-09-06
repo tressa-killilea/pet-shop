@@ -17,12 +17,12 @@ export default class Pagination extends React.Component {
   onArrowClick(direction) {
     if (
       direction === "front" &&
-      (this.state.current_page != this.props.total_pages &&
-        this.state.current_page != 10)
+      (this.state.current_page !== this.props.total_pages &&
+        this.state.current_page !== 10)
     ) {
       this.setState({ current_page: this.state.current_page + 1 });
       this.props.callback(this.state.current_page + 1);
-    } else if (direction === "back" && this.state.current_page != 1) {
+    } else if (direction === "back" && this.state.current_page !== 1) {
         this.props.callback(this.state.current_page - 1);
       this.setState({ current_page: this.state.current_page - 1 });
     }

@@ -1,6 +1,7 @@
 import * as React from "react";
 import Card from "../Card/card";
-import './grid.scss';
+import "./grid.scss";
+import "../../assets/gatsby1.jpg";
 
 export default class Grid extends React.Component {
   testData = [
@@ -89,19 +90,29 @@ export default class Grid extends React.Component {
       favorited: false,
     },
   ];
+  
 
   render() {
+    function getImage(img) {
+      if (img === undefined || img === "") {
+        return "../../assets/stock_dog.jpeg";
+      }
+      return img;
+    }
+    function formatName(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+      }
     return (
       <div className="row row-cols-4 grid-wrapper">
-        {this.testData.map(function (data, i) {
+        {this.props.data.map(function (data, i) {
           return (
             <div className="col">
               <Card
-                img={data.img}
-                name={data.name}
-                breed={data.breed}
+                img={getImage(data.photos[0]?.full)} //data.photos[0].medium
+                name={formatName(data.name)}
+                breed={data.breeds.primary}
                 age={data.age}
-                favorited={data.favorited}
+                favorited={false}
               ></Card>
             </div>
           );
@@ -111,5 +122,3 @@ export default class Grid extends React.Component {
     );
   }
 }
-
-//<div class='col-4 col-sm-2'>1</div>
