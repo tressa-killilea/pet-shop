@@ -40,6 +40,7 @@ export default class Pagination extends React.Component {
   }
 
   render() {
+    this.ary = this.getDataAry(this.props.total_pages);
     return (
       <div className="pagination">
         <button onClick={() => this.onArrowClick("back")}>

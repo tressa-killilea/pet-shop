@@ -11,6 +11,7 @@ export default class Dogs extends React.Component {
       total_pages: 1,
     },
   };
+  token = "";
 
   componentDidMount() {
     const CLIENT_ID = "MIQ9FJUmeV6VyvkR69xtxvoKOeEZTDLbplRKVwe5exYroEmqtV";
@@ -23,26 +24,31 @@ export default class Dogs extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.getDogs(data.access_token);
+        this.token = data.access_token;
+        this.getDogs(1);
       });
   }
 
-  getDogs(token) {
-    fetch("https://api.petfinder.com/v2/animals?type=dog", {
+  getDogs(page_num) {
+    fetch(`https://api.petfinder.com/v2/animals?type=dog&page=${page_num}`, {
       method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${this.token}` },
     })
       .then((response) => response.json())
-      .then((data) =>
+      .then((data) =>{
         this.setState({ dogs_data: data.animals, pagination: data.pagination })
+      }
       );
   }
 
-  onPageChange = (page_num) => {};
+  onPageChange = (page_num) => {
+    this.getDogs(page_num);
+  };
 
   render() {
     return (
       <div className="dogs_page">
+        <h2>Dogs</h2>
         <div className="dog_grid">
           <Grid data={this.state.dogs_data}></Grid>
           <Pagination
@@ -56,4 +62,8 @@ export default class Dogs extends React.Component {
   }
 }
 
-// Grid component
+// Pagination
+// Loading screen
+// Filter
+// Style header
+// IMG url to work

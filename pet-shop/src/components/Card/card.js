@@ -5,25 +5,8 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 class Card extends React.Component{
 
-    /*
-pet = {
-    img: url,
-    name: "",
-    breed: "",
-    age: "",
-    favorited: false
-}
-    */
-
-    pet = {
-        img: this.props.img,
-        name: this.props.name,
-        breed: this.props.breed,
-        age: this.props.age,
-        favorited: this.props.favorited
-    }
     state={
-        favorited: this.pet.favorited
+        favorited: this.props.favorited
     }
 
    favoriteClick = () => {
@@ -31,9 +14,9 @@ pet = {
    }
     render(){
         return <div className="card_wrapper">
-            <img src={this.pet.img} className="card_image"></img>
-            <div className="pet_name">{this.pet.name}</div>
-            <div className="pet_stat">{`${this.pet.age} - ${this.pet.breed}`}</div>
+            <img src={this.props.img} className="card_image"></img>
+            <div className="pet_name">{this.props.name}</div>
+            <div className="pet_stat">{`${this.props.age} - ${this.props.breed}`}</div>
             {!this.state.favorited && <button className="fav_icon" onClick={this.favoriteClick}><FavoriteBorderOutlinedIcon className="favorite"></FavoriteBorderOutlinedIcon></button>}
             {this.state.favorited && <button className="fav_icon" onClick={this.favoriteClick}><FavoriteIcon className="favorite"></FavoriteIcon></button>}
         </div>
