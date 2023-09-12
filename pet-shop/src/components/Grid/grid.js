@@ -22,7 +22,7 @@ export default class Grid extends React.Component {
           return (
             <div className="col">
               <Card
-                img={getImage(data.photos[0]?.full)} //data.photos[0].medium
+                img={getImage(data.photos[0]?.full)} 
                 name={formatName(data.name)}
                 breed={data.breeds.primary}
                 age={data.age}
