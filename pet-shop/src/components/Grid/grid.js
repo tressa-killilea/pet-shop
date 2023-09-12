@@ -1,7 +1,6 @@
 import * as React from "react";
 import Card from "../Card/card";
 import "./grid.scss";
-import "../../assets/gatsby1.jpg";
 
 export default class Grid extends React.Component {
   render() {
